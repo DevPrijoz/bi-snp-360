@@ -3,9 +3,9 @@
 > **ESTADO: protótipo técnico funcional / piloto de API — NÃO HOMOLOGADO PARA PRODUÇÃO.**
 > Toda a base exibida na interface pública é **sintética e fictícia**, sem representação de dados reais do MPOR. Não utilizar para decisões institucionais.
 
-**Versão de desenvolvimento:** v0.3.0 • 19 testes de API, dados e segurança aprovados localmente. A execução em CI deve ser conferida a cada commit.
+**Versão de desenvolvimento:** v0.3.0 • 26 testes no GitHub Actions aprovados (execução 39301139844). Protótipo sem homologação institucional.
 
-**Repositório principal (privado):** [DevPrijoz/bi-snp-360](https://github.com/DevPrijoz/bi-snp-360). **Pasta demonstrativa:** `web/`. **Status GitHub Pages:** dependente de habilitação na conta. Veja [DEPLOY_STATUS.md](docs/DEPLOY_STATUS.md). O sistema de inspiração é o [BI Hidrovias da SNHN](https://hzhcdyvz4w-tech.github.io/bi-hidrovias/); não reutiliza os dados ou a estrutura orgânica da SNHN.
+**Demonstração web:** [https://bi-snp-360.vercel.app/](https://bi-snp-360.vercel.app/) (Vercel, deployment production READY em 19/10/2026; teste HTTP externo ainda deve ser feito pelo navegador). **Repositório principal (privado):** [DevPrijoz/bi-snp-360](https://github.com/DevPrijoz/bi-snp-360). **Pasta publicada:** apenas `web/`. **GitHub Pages:** desnecessário para a demonstração atual. Veja [DEPLOY_STATUS.md](docs/DEPLOY_STATUS.md). O sistema de inspiração é o [BI Hidrovias da SNHN](https://hzhcdyvz4w-tech.github.io/bi-hidrovias/); não reutiliza os dados ou a estrutura orgânica da SNHN.
 
 ## O que está disponível
 
