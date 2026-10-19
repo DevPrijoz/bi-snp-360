@@ -1,0 +1,37 @@
+{
+  "contract_version": "0.2.0",
+  "description": "Contratos de ENTRADA preliminares; não representam homologação das fontes, regras de vínculo ou cálculo de indicadores.",
+  "sources": {
+    "SIOP": "SIOP - planejamento e programação orçamentária",
+    "SIAFI": "SIAFI / Tesouro Gerencial - execução orçamentária",
+    "SEI": "SEI/MPOR - processos e providências",
+    "OBRAS": "Obrasgov / carteira aprovada de obras",
+    "ANTAQ": "ANTAQ - estatísticas portuárias"
+  },
+  "datasets": {
+    "loa": {
+      "source_id": "SIOP", "unit": "BRL", "primary_key": ["exercicio", "uo", "acao", "plano_orcamentario", "fonte", "identificador_linha"],
+      "fields": {"identificador_linha":"string", "exercicio":"year", "uo":"string", "acao":"string", "plano_orcamentario":"string", "fonte":"string", "dotacao_atualizada":"decimal", "data_corte":"date"}
+    },
+    "execucao": {
+      "source_id": "SIAFI", "unit": "BRL", "primary_key": ["identificador_linha"],
+      "fields": {"identificador_linha":"string", "exercicio":"year", "uo":"string", "acao":"string", "plano_orcamentario":"string", "empenhado":"decimal", "liquidado":"decimal", "pago":"decimal", "data_corte":"date"}
+    },
+    "rap": {
+      "source_id": "SIAFI", "unit": "BRL", "primary_key": ["identificador_linha"],
+      "fields": {"identificador_linha":"string", "exercicio_inscricao":"year", "uo":"string", "acao":"string", "rap_inscrito":"decimal", "rap_pago":"decimal", "rap_cancelado":"decimal", "data_corte":"date"}
+    },
+    "processos": {
+      "source_id": "SEI", "unit": "registro", "primary_key": ["id_processo_origem"],
+      "fields": {"id_processo_origem":"string", "unidade":"string", "assunto":"string", "status":"string", "prazo":"date_optional", "data_corte":"date"}
+    },
+    "obras": {
+      "source_id": "OBRAS", "unit": "BRL/%", "primary_key": ["id_empreendimento_origem"],
+      "fields": {"id_empreendimento_origem":"string", "unidade":"string", "situacao":"string", "valor_previsto":"decimal", "percentual_fisico":"decimal_optional", "data_corte":"date"}
+    },
+    "movimentacao": {
+      "source_id": "ANTAQ", "unit": "toneladas", "primary_key": ["id_linha_origem"],
+      "fields": {"id_linha_origem":"string", "instalacao":"string", "competencia":"date", "toneladas":"decimal", "data_corte":"date"}
+    }
+  }
+}

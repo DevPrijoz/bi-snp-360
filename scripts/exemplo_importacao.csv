@@ -1,0 +1,2 @@
+external_key;module;title;object_goal;unit_code;information_unit;execution_responsible;status;risk;due_date;next_action;source_id;source_record_id;data_cutoff;classification
+MODELO-001;processos;Exemplo sintético de monitoramento;Objeto de teste com prazo;GAB;GAB;Equipe de demonstração;pendente;dados_pendentes;2026-11-25;Validar a origem e o prazo;SEI;REGISTRO-FICTICIO-001;2026-10-19;interno

@@ -1,0 +1,16 @@
+services:
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      DATABASE_URL: sqlite:////srv/app/data/snp360_pilot.db
+      SNP_AUTO_CREATE_SCHEMA: "1"
+      OIDC_ISSUER: ${OIDC_ISSUER:-}
+      OIDC_AUDIENCE: ${OIDC_AUDIENCE:-}
+      OIDC_JWKS_URL: ${OIDC_JWKS_URL:-}
+    volumes:
+      - snp360_db:/srv/app/data
+    restart: unless-stopped
+volumes:
+  snp360_db:

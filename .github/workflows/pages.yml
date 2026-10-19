@@ -6,26 +6,30 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: pages
+  group: github-pages
   cancel-in-progress: false
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validar dados publicos sinteticos
-        run: python -m unittest discover -s tests -p "test_static.py" -v
+      - name: Verificar dados exclusivamente demonstrativos
+        run: |
+          python scripts/validate_assets.py
+          python scripts/release_guard.py
+      - name: Instrucoes de ativacao do Pages
+        run: |
+          echo 'GitHub Pages precisa estar habilitado em Settings > Pages > Source: GitHub Actions.'
+          echo 'Se a conta usa GitHub Free e este repositório é privado, o Pages pode não estar disponível.'
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: web
+          path: ./web
       - id: deployment
         uses: actions/deploy-pages@v4
