@@ -7,7 +7,7 @@ def test_offline_demo_is_standalone_and_fictitious(tmp_path):
     html=path.read_text(encoding='utf-8')
     assert 'window.__SNP_DEMO_DATA__' in html
     assert 'DEMONSTRACAO' in html
-    assert 'v0.2.0' in html
+    assert 'v0.4.0' in html
     assert 'href="./assets/styles.css"' not in html
     assert 'src="./assets/app.js"' not in html
     assert "fetch('./data/demo_public.json'" not in html

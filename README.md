@@ -3,9 +3,19 @@
 > **ESTADO: protótipo técnico funcional / piloto de API — NÃO HOMOLOGADO PARA PRODUÇÃO.**
 > Toda a base exibida na interface pública é **sintética e fictícia**, sem representação de dados reais do MPOR. Não utilizar para decisões institucionais.
 
-**Versão de desenvolvimento:** v0.3.0 • 26 testes no GitHub Actions aprovados (execução 39301139844). Protótipo sem homologação institucional.
+**Versão de desenvolvimento:** v0.3.0 • 19 testes de API, dados e segurança aprovados localmente. A execução em CI deve ser conferida a cada commit.
 
-**Demonstração web:** [https://bi-snp-360.vercel.app/](https://bi-snp-360.vercel.app/) (Vercel, deployment production READY em 19/10/2026; teste HTTP externo ainda deve ser feito pelo navegador). **Repositório principal (privado):** [DevPrijoz/bi-snp-360](https://github.com/DevPrijoz/bi-snp-360). **Pasta publicada:** apenas `web/`. **GitHub Pages:** desnecessário para a demonstração atual. Veja [DEPLOY_STATUS.md](docs/DEPLOY_STATUS.md). O sistema de inspiração é o [BI Hidrovias da SNHN](https://hzhcdyvz4w-tech.github.io/bi-hidrovias/); não reutiliza os dados ou a estrutura orgânica da SNHN.
+**Repositório principal (privado):** [DevPrijoz/bi-snp-360](https://github.com/DevPrijoz/bi-snp-360). **Pasta demonstrativa:** `web/`. **Status GitHub Pages:** dependente de habilitação na conta. Veja [DEPLOY_STATUS.md](docs/DEPLOY_STATUS.md). O sistema de inspiração é o [BI Hidrovias da SNHN](https://hzhcdyvz4w-tech.github.io/bi-hidrovias/); não reutiliza os dados ou a estrutura orgânica da SNHN.
+
+## Atualização v0.4.0 — Verificações e matriz de integrações
+
+- **Visão Situação das integrações**: plano de recebimento das seis fontes prioritárias, responsáveis propostos, campos exigidos e exportação de matriz CSV; as seis permanecem **pendentes**, sem qualquer vínculo oficial.
+- **Verificação de saúde estática**: `/health.json` (retorna `synthetic: true`, `official_integrations: 0`, `institutional_backend: false`).
+- **Segurança e qualidade da apresentação**: cabeçalhos de proteção Vercel, validação de datas e mitigação de fórmulas de planilha nos CSVs exportados.
+- **Testes automatizados**: 25 testes locais e teste visual Chromium em desktop (1440 px) e celular (375 px), sem erros de JS ou rolagem horizontal; verificação HTTPS agendada e após alterações no GitHub Actions.
+- **URL pública da demonstração**: https://bi-snp-360.vercel.app/ — não é ambiente corporativo de dados reais.
+
+**Bloqueadores de produção institucional:** acesso autorizado às fontes, classificação da informação, dicionários e chaves oficiais, homologação por unidades/gestores, IdP/SSO, backend e banco corporativo, gestão de backups, monitoramento, testes de segurança e aceite de TI/MPOR. Nenhum deles fica automaticamente resolvido por implantar o frontend estático.
 
 ## O que está disponível
 

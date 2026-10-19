@@ -1,3 +1,13 @@
+## v0.4.0 — Resiliência e gestão das integrações (demonstração)
+
+- Nova visão navegável **Situação das integrações** com seis fontes prioritárias, responsáveis propostos, pré-requisitos e estados explicitamente pendentes.
+- Matriz CSV exportável, sem dados institucionais.
+- `/health.json` para verificações de disponibilidade, sem backend.
+- `vercel.json` com cabeçalhos protetivos no frontend.
+- Validação estrita de datas em importações demonstrativas e proteção adicional contra fórmulas executáveis em CSV exportado.
+- Testes automáticos do contrato web e verificação HTTPS agendada no GitHub Actions.
+- Nenhuma integração oficial implementada. Entrada em produção institucional permanece bloqueada por autorizações, dados e infraestrutura.
+
 # Histórico de versões
 
 ## 0.2.0 — 2026-10-19

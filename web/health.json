@@ -1,0 +1,9 @@
+{
+  "service": "bi-snp-360",
+  "environment": "DEMONSTRACAO",
+  "synthetic": true,
+  "deployment": "static",
+  "official_integrations": 0,
+  "institutional_backend": false,
+  "schema_version": 1
+}
