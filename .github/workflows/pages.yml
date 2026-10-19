@@ -27,6 +27,8 @@ jobs:
       - name: Validar dados publicos sinteticos
         run: python -m unittest discover -s tests -p "test_static.py" -v
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: web
