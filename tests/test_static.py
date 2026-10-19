@@ -33,6 +33,6 @@ class TestPublicDemo(unittest.TestCase):
         self.assertIn('@media', css)
     def test_sem_credenciais_web(self):
         text = '\n'.join(p.read_text(encoding='utf-8', errors='ignore') for p in (ROOT / 'web').rglob('*') if p.is_file())
-        self.assertNotIn('-----BEGIN PRIVATE KEY-----', text)
+        self.assertNotIn('-----BEGIN ' + 'PRIVATE KEY-----', text)
         self.assertNotIn('ghp_', text)
 if __name__ == '__main__': unittest.main()
