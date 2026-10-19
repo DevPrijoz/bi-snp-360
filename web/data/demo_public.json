@@ -1,0 +1,309 @@
+{
+  "metadata": {
+    "name": "BI SNP 360° — demonstração de arquitetura e interface",
+    "environment": "DEMONSTRACAO",
+    "synthetic": true,
+    "reference_date": "2026-10-19",
+    "last_updated": "2026-10-19",
+    "publisher": "Protótipo técnico — sem homologação institucional",
+    "disclaimer": "TODOS OS REGISTROS E VALORES ABAIXO SÃO FICTÍCIOS. Não representam informações do MPOR/SNP e não podem fundamentar decisões."
+  },
+  "units": [
+    {
+      "code": "SNP",
+      "name": "Secretaria Nacional de Portos"
+    },
+    {
+      "code": "GAB",
+      "name": "Gabinete SNP"
+    },
+    {
+      "code": "DGMP",
+      "name": "Departamento de Gestão e Modernização Portuária"
+    },
+    {
+      "code": "DNOP",
+      "name": "Departamento de Novas Outorgas e Políticas Regulatórias Portuárias"
+    },
+    {
+      "code": "CGPP",
+      "name": "CG de Planejamento Portuário (vinculação a validar)"
+    },
+    {
+      "code": "CGGP",
+      "name": "CG de Governança Portuária (vinculação a validar)"
+    },
+    {
+      "code": "CGITD",
+      "name": "CG de Inovação Portuária e Transformação Digital (vinculação a validar)"
+    },
+    {
+      "code": "CGM",
+      "name": "CG de Modelagem (vinculação a validar)"
+    },
+    {
+      "code": "CGAP",
+      "name": "CG de Arrendamentos Portuários (vinculação a validar)"
+    },
+    {
+      "code": "CGAUT",
+      "name": "CG de Autorizações Portuárias (vinculação a validar)"
+    }
+  ],
+  "sources": [
+    {
+      "id": "SEI",
+      "name": "SEI/MPOR",
+      "mode": "Autorização e integração pendentes",
+      "category": "interna"
+    },
+    {
+      "id": "SIOP",
+      "name": "SIOP",
+      "mode": "Extração autorizada pendente",
+      "category": "institucional"
+    },
+    {
+      "id": "SIAFI",
+      "name": "SIAFI / Tesouro Gerencial",
+      "mode": "Credenciamento pendente",
+      "category": "restrita"
+    },
+    {
+      "id": "TRANSF",
+      "name": "Transferegov",
+      "mode": "Conector a especificar",
+      "category": "institucional"
+    },
+    {
+      "id": "OBRAS",
+      "name": "Obrasgov",
+      "mode": "Conector a especificar",
+      "category": "institucional"
+    },
+    {
+      "id": "ANTAQ",
+      "name": "ANTAQ",
+      "mode": "Dados abertos sob validação",
+      "category": "publica"
+    },
+    {
+      "id": "INFRA",
+      "name": "MPOR / Infra S.A.",
+      "mode": "Levantamento pendente",
+      "category": "institucional"
+    },
+    {
+      "id": "AP",
+      "name": "Autoridades Portuárias",
+      "mode": "Acordos de fornecimento pendentes",
+      "category": "institucional"
+    },
+    {
+      "id": "PNCP",
+      "name": "Compras.gov.br / PNCP",
+      "mode": "Dados abertos sob validação",
+      "category": "publica"
+    },
+    {
+      "id": "CONTROLE",
+      "name": "TCU / CGU",
+      "mode": "Conector a especificar",
+      "category": "publica"
+    }
+  ],
+  "records": [
+    {
+      "id": "DEMO-001",
+      "module": "direcao",
+      "title": "Consolidar prioridades da carteira estratégica",
+      "unit": "GAB",
+      "status": "em_andamento",
+      "risk": "atencao",
+      "due_date": "2026-10-28",
+      "responsible": "Ponto focal ilustrativo",
+      "next_action": "Validar lista de prioridades",
+      "decision": "Definir ordem de avaliação",
+      "source": "SEI",
+      "validation": "pendente",
+      "evidence_url": "",
+      "amount": null
+    },
+    {
+      "id": "DEMO-002",
+      "module": "orcamento",
+      "title": "Conferir matriz de ações e planos orçamentários",
+      "unit": "SNP",
+      "status": "pendente",
+      "risk": "dados_pendentes",
+      "due_date": "2026-11-03",
+      "responsible": "Equipe ilustrativa",
+      "next_action": "Solicitar extração autorizada",
+      "decision": "Homologar regra de vinculação",
+      "source": "SIOP",
+      "validation": "pendente",
+      "evidence_url": "",
+      "amount": null
+    },
+    {
+      "id": "DEMO-003",
+      "module": "investimentos",
+      "title": "Revisar o cadastro mestre de empreendimentos",
+      "unit": "DGMP",
+      "status": "em_andamento",
+      "risk": "regular",
+      "due_date": "2026-11-12",
+      "responsible": "Equipe ilustrativa",
+      "next_action": "Conciliar identificadores",
+      "decision": "Validar estrutura cadastral",
+      "source": "OBRAS",
+      "validation": "pendente",
+      "evidence_url": "",
+      "amount": null
+    },
+    {
+      "id": "DEMO-004",
+      "module": "outorgas",
+      "title": "Catalogar fases de projetos de outorga",
+      "unit": "DNOP",
+      "status": "em_andamento",
+      "risk": "atencao",
+      "due_date": "2026-10-23",
+      "responsible": "Ponto focal ilustrativo",
+      "next_action": "Definir campos do funil",
+      "decision": "Aprovar etapas padronizadas",
+      "source": "SEI",
+      "validation": "pendente",
+      "evidence_url": "",
+      "amount": null
+    },
+    {
+      "id": "DEMO-005",
+      "module": "planejamento",
+      "title": "Mapear ciclos de revisão de planos portuários",
+      "unit": "CGPP",
+      "status": "pendente",
+      "risk": "dados_pendentes",
+      "due_date": "2026-11-05",
+      "responsible": "Equipe ilustrativa",
+      "next_action": "Definir inventário de planos",
+      "decision": "Validar vínculo da unidade",
+      "source": "INFRA",
+      "validation": "pendente",
+      "evidence_url": "",
+      "amount": null
+    },
+    {
+      "id": "DEMO-006",
+      "module": "governanca",
+      "title": "Estruturar matriz de compromissos e indicadores",
+      "unit": "CGGP",
+      "status": "em_andamento",
+      "risk": "regular",
+      "due_date": "2026-11-15",
+      "responsible": "Ponto focal ilustrativo",
+      "next_action": "Apresentar primeira versão",
+      "decision": "Validar critérios",
+      "source": "AP",
+      "validation": "pendente",
+      "evidence_url": "",
+      "amount": null
+    },
+    {
+      "id": "DEMO-007",
+      "module": "coordenacao",
+      "title": "Acompanhar encaminhamentos entre departamentos",
+      "unit": "GAB",
+      "status": "em_andamento",
+      "risk": "atencao",
+      "due_date": "2026-10-25",
+      "responsible": "Equipe ilustrativa",
+      "next_action": "Confirmar responsáveis",
+      "decision": "Priorizar pendências",
+      "source": "SEI",
+      "validation": "pendente",
+      "evidence_url": "",
+      "amount": null
+    },
+    {
+      "id": "DEMO-008",
+      "module": "processos",
+      "title": "Inventariar prazos dos processos prioritários",
+      "unit": "DNOP",
+      "status": "pendente",
+      "risk": "critico",
+      "due_date": "2026-10-12",
+      "responsible": "Equipe ilustrativa",
+      "next_action": "Revisar pendências vencidas",
+      "decision": "Determinar providência",
+      "source": "SEI",
+      "validation": "pendente",
+      "evidence_url": "",
+      "amount": null
+    },
+    {
+      "id": "DEMO-009",
+      "module": "riscos",
+      "title": "Propor metodologia de classificação de riscos",
+      "unit": "GAB",
+      "status": "pendente",
+      "risk": "critico",
+      "due_date": "2026-10-16",
+      "responsible": "Equipe ilustrativa",
+      "next_action": "Submeter regra para homologação",
+      "decision": "Aprovar parâmetros do semáforo",
+      "source": "CONTROLE",
+      "validation": "pendente",
+      "evidence_url": "",
+      "amount": null
+    },
+    {
+      "id": "DEMO-010",
+      "module": "desempenho",
+      "title": "Padronizar indicadores de movimentação portuária",
+      "unit": "DGMP",
+      "status": "em_andamento",
+      "risk": "regular",
+      "due_date": "2026-11-20",
+      "responsible": "Equipe ilustrativa",
+      "next_action": "Validar fonte e unidade de medida",
+      "decision": "Homologar definições",
+      "source": "ANTAQ",
+      "validation": "pendente",
+      "evidence_url": "",
+      "amount": null
+    },
+    {
+      "id": "DEMO-011",
+      "module": "inovacao",
+      "title": "Definir catálogo de integrações e produtos digitais",
+      "unit": "CGITD",
+      "status": "pendente",
+      "risk": "dados_pendentes",
+      "due_date": "2026-11-30",
+      "responsible": "Equipe ilustrativa",
+      "next_action": "Levantar requisitos com TI",
+      "decision": "Aprovar arquitetura de integração",
+      "source": "INFRA",
+      "validation": "pendente",
+      "evidence_url": "",
+      "amount": null
+    },
+    {
+      "id": "DEMO-012",
+      "module": "relatorios",
+      "title": "Criar formato padrão de briefing executivo",
+      "unit": "SNP",
+      "status": "concluido",
+      "risk": "regular",
+      "due_date": "2026-10-30",
+      "responsible": "Equipe ilustrativa",
+      "next_action": "Solicitar validação da direção",
+      "decision": "Homologar modelo",
+      "source": "SEI",
+      "validation": "pendente",
+      "evidence_url": "",
+      "amount": null
+    }
+  ]
+}
