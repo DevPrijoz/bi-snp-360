@@ -18,6 +18,7 @@
 | `loa` | SIOP | linha de dotação / ação / plano / fonte / exercício | Layout a homologar |
 | `execucao` | SIAFI | linha de execução financeiro-orçamentária | Layout a homologar |
 | `rap` | SIAFI | linha RAP por exercício de inscrição | Layout a homologar |
+| `pagamentos` | SIAFI | documento/linha de pagamento LOA ou RAP | Layout e identificadores a homologar |
 | `processos` | SEI | processo com unidade e prazo | Autorização imprescindível |
 | `obras` | Obrasgov | empreendimento / avanço | Relacionamentos a definir |
 | `movimentacao` | ANTAQ | instalação / competência | Dados públicos a verificar |
@@ -51,3 +52,7 @@ A ferramenta valida o cabeçalho e o contrato, campos requeridos, chave composta
 ## 5. Próximas entregas com as áreas
 
 Receber recortes de LOA/RAP/Pagamentos (incluindo os extratos do trabalho orçamentário já existentes, somente se autorizados), catálogo de investimentos, outorgas e processos prioritários. Homologar chaves entre SIOP/SIAFI/SEI e unidade responsável, antes de qualquer painel agregado.
+
+## Marco de conferência orçamentária v0.5.0
+
+Adicionada conferência local conjunta de quatro bases (`loa`, `execucao`, `rap`, `pagamentos`) e gerador de dados sintéticos, sem somatórios oficiais ou conciliação contábil. Ver [PACOTE_ORCAMENTARIO.md](PACOTE_ORCAMENTARIO.md).

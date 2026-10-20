@@ -9,7 +9,8 @@
 - [x] Criar central de alertas, relatórios e exportação.
 - [x] Construir API piloto com autorização OIDC, segregação, auditoria e CSV.
 - [x] Incluir testes básicos e este conjunto de documentos.
-- [ ] Criar repositório independente `DevPrijoz/bi-snp-360` e publicar `main` (depende de criação de repositório; ferramenta conectada não fornece criação).
+- [x] Criar repositório independente `DevPrijoz/bi-snp-360` e publicar `main` privado.
+- [x] Publicar demonstração sintética via Vercel, com monitor HTTPS e CI; rede institucional pode bloqueá-la.
 
 ## Marco 1 — definição institucional (BLOQUEADO)
 
@@ -21,7 +22,8 @@
 
 ## Marco 2 — primeiros dados reais (BLOQUEADO)
 
-- [ ] Planejar fatos orçamentários separados: LOA/RAP/PAGAMENTOS.
+- [x] Estruturar contratos preliminares e validação local conjunta: LOA/execução/RAP/PAGAMENTOS (sem fonte oficial).
+- [ ] Homologar chaves e fórmulas do orçamento com amostras oficiais autorizadas.
 - [ ] Mapear dimensões e chaves canônicas SIOP/SIAFI, UO, ação, PO, empenho, período.
 - [ ] Integrar fonte de obras/investimentos aprovada.
 - [ ] Integrar carteira de outorgas e processos por contratos e SEI autorizados.

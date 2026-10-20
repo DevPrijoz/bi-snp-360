@@ -6,7 +6,7 @@
 
 | Verificação | Resultado | Limite |
 |---|---|---|
-| `pytest -q` | 19 testes aprovados | Não é teste de integração institucional |
+| `pytest -q` | 33 testes locais aprovados na versão 0.5.0 (validar novamente em CI) | Não é teste de integração institucional |
 | `python scripts/validate_assets.py` | 12 registros fictícios / 10 unidades / 10 fontes propostas | Não atesta fontes oficiais |
 | `node --check web/assets/app.js` | Sem erro de sintaxe JavaScript | Não substitui teste de navegadores móveis |
 | `python scripts/release_guard.py` | Arquivos rastreados sem achados bloqueadores | Não substitui DLP, classificação nem inspeção humana |

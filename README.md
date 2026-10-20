@@ -3,13 +3,21 @@
 > **ESTADO: protótipo técnico funcional / piloto de API — NÃO HOMOLOGADO PARA PRODUÇÃO.**
 > Toda a base exibida na interface pública é **sintética e fictícia**, sem representação de dados reais do MPOR. Não utilizar para decisões institucionais.
 
-**Versão de desenvolvimento:** v0.3.0 • 19 testes de API, dados e segurança aprovados localmente. A execução em CI deve ser conferida a cada commit.
+**Versão de desenvolvimento:** v0.5.0 (preparação de dados) • testes em CI monitorados; sistema institucional ainda não homologado.
 
-**Repositório principal (privado):** [DevPrijoz/bi-snp-360](https://github.com/DevPrijoz/bi-snp-360). **Pasta demonstrativa:** `web/`. **Status GitHub Pages:** dependente de habilitação na conta. Veja [DEPLOY_STATUS.md](docs/DEPLOY_STATUS.md). O sistema de inspiração é o [BI Hidrovias da SNHN](https://hzhcdyvz4w-tech.github.io/bi-hidrovias/); não reutiliza os dados ou a estrutura orgânica da SNHN.
+**Repositório principal (privado):** [DevPrijoz/bi-snp-360](https://github.com/DevPrijoz/bi-snp-360). **Pasta demonstrativa:** `web/`. **Demonstração em produção:** https://bi-snp-360.vercel.app/ (acesso pode depender da política de rede do Ministério). Veja [DEPLOY_STATUS.md](docs/DEPLOY_STATUS.md). O sistema de inspiração é o [BI Hidrovias da SNHN](https://hzhcdyvz4w-tech.github.io/bi-hidrovias/); não reutiliza os dados ou a estrutura orgânica da SNHN.
+
+## Marco v0.5.0 — Preparação orçamentária para ingestão
+
+- Incluído o contrato preliminar **pagamentos**, independente de LOA, execução e RAP; campos e chaves ainda sujeitos à homologação SIAFI.
+- Preparado um pacote local para validar os **quatro arquivos em conjunto**, rejeitando arquivos incompatíveis sem publicar linhas, valores ou dados institucionais.
+- Gerador de exemplos 100% sintéticos em `local_data/` para ensaios, com testes de falha e conferência.
+- Plano público de integrações detalhado no painel, deixando explícito o que está pendente; **zero integrações oficiais**.
+- Passo a passo: [docs/PACOTE_ORCAMENTARIO.md](docs/PACOTE_ORCAMENTARIO.md).
 
 ## Atualização v0.4.0 — Verificações e matriz de integrações
 
-- **Visão Situação das integrações**: plano de recebimento das seis fontes prioritárias, responsáveis propostos, campos exigidos e exportação de matriz CSV; as seis permanecem **pendentes**, sem qualquer vínculo oficial.
+- **Visão Situação das integrações**: plano de recebimento dos conjuntos de dados prioritários, responsáveis propostos, campos exigidos e exportação de matriz CSV; todos permanecem **pendentes**, sem qualquer vínculo oficial.
 - **Verificação de saúde estática**: `/health.json` (retorna `synthetic: true`, `official_integrations: 0`, `institutional_backend: false`).
 - **Segurança e qualidade da apresentação**: cabeçalhos de proteção Vercel, validação de datas e mitigação de fórmulas de planilha nos CSVs exportados.
 - **Testes automatizados**: 25 testes locais e teste visual Chromium em desktop (1440 px) e celular (375 px), sem erros de JS ou rolagem horizontal; verificação HTTPS agendada e após alterações no GitHub Actions.
@@ -24,8 +32,8 @@
 - Exportação CSV e JSON, importação de CSV **somente local e temporária no navegador** (somente conteúdo sintético/autorizado).
 - API FastAPI com persistência para piloto, autenticação **OIDC/JWT obrigatória**, checagem de permissões por unidade, trilha de auditoria, homologação segregada, publicação explícita e encerramento de alertas com providência e evidência.
 - Importação CSV de piloto com `dry_run=true` por padrão, limite de tamanho, verificação de duplicados e sem publicação automática.
-- Testes automatizados (19 cenários), validador de publicação e workflows de CI; deploy da **demonstração pública somente manual**, nunca automático.
-- Contratos preliminares de 6 bases e utilitário isolado de conferência de CSV, que gera manifesto SHA-256 pendente de homologação **sem exportar o conteúdo para o frontend ou repositório**.
+- Testes automatizados, validador de publicação e workflows de CI; a **demonstração pública é implantada automaticamente na Vercel** a partir da branch `main`.
+- Contratos preliminares de 7 bases e utilitário isolado de conferência de CSV, que gera manifesto SHA-256 pendente de homologação **sem exportar o conteúdo para o frontend ou repositório**.
 
 **Importante:** A interface demonstrativa **não está ligada à API interna**. Essa separação é intencional: a interface é somente um demonstrador estático para apresentação. O uso institucional precisará de um frontend autenticado, integração segura com o backend, IdP homologado, migrações, observabilidade, segurança e aprovação da TI/gestores.
 

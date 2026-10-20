@@ -40,6 +40,8 @@ def validate_field(value: str, kind: str) -> bool:
             return len(value) == 10
         except ValueError:
             return False
+    if kind == 'origem_pagamento':
+        return value in {'LOA', 'RAP'}
     if kind == 'decimal':
         try:
             d = Decimal(value)

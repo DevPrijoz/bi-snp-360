@@ -1,3 +1,11 @@
+## v0.5.0 — Preparação do ciclo orçamentário (20/10/2026)
+
+- Novo contrato preliminar para pagamentos LOA/RAP em `contracts/datasets.json`.
+- Script de conferência conjunta de LOA/execução/RAP/pagamentos: reporte local apenas de contagens e hashes, sem dados brutos ou publicação.
+- Gerador restrito de amostras fictícias e testes de rejeição/atomicidade.
+- Matriz de integrações demonstrativa refinada e documentação de solicitação de dados.
+- Nenhuma integração real efetuada; fonte, dicionário, infraestrutura e homologação pendentes.
+
 ## v0.4.0 — Resiliência e gestão das integrações (demonstração)
 
 - Nova visão navegável **Situação das integrações** com seis fontes prioritárias, responsáveis propostos, pré-requisitos e estados explicitamente pendentes.
