@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-10-23",
+  "cutoff": "2026-10-09 (série histórica); execução detalhada sem metadado de corte na aba",
+  "manifest": [
+    {
+      "id": "historico-2019-2026",
+      "name": "01 - SÉRIE HISTÓRICA 2019-2026.xlsx",
+      "size": 233438,
+      "sha256": "590e58d6ca47988e1c8f0fa529f5ce51f6dd7ae3850dc636c0bf1e3a4050bae4"
+    },
+    {
+      "id": "dados-secundarios",
+      "name": "Dados secundarios.xlsx",
+      "size": 11000,
+      "sha256": "f8a012de48c09d2d8133a1faa34f8ab1528bdd84cdcafa3ea29ff8c0a3933dc5"
+    },
+    {
+      "id": "execucao-loa-rap-2026",
+      "name": "Execução Orçamentária  LOA+RAP SNP - 2026.xlsx",
+      "size": 13232,
+      "sha256": "8da0d69ca26ffd9f2b47afd3225a7207a70b795ef159c8cba0d86b9d806e2407"
+    },
+    {
+      "id": "processos-pendentes",
+      "name": "PROCESSOS PENTENDES.xlsx",
+      "size": 16597,
+      "sha256": "3c1ed1fe2274b23f4d333be5f56d31151724e6f04d1349b02dcc9c3b5337124c"
+    },
+    {
+      "id": "relatorio-gerencial-2026",
+      "name": "BI_SNP_360_Relatorio_Executivo_Restrito_2026.pdf",
+      "size": 77715,
+      "sha256": "01ad713d01ba38c07a3fc6aa8bf92ea7b5e1813cdf949284f6c0dbdf3e3a7aae"
+    },
+    {
+      "id": "conferencia-gerencial-2026",
+      "name": "BI_SNP_360_Conferencia_Oficial_Restrita_2026.xlsx",
+      "size": 23636,
+      "sha256": "3090a7b09733901131dc16781a21915a06b65d2ebbf23be1d14f310492dbc510"
+    }
+  ],
+  "normalized_sha256": "52d062c67ed5c9584624f3e4ac0474fcecd7d60d806db7441d0e895a3a58be5e",
+  "access": "Vercel Authentication: All Deployments",
+  "status": "Preliminar / não homologado"
+}
