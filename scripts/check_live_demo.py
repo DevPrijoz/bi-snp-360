@@ -1,33 +1,44 @@
-"""Teste HTTP da demonstração publicada. Execute em runner com acesso à internet."""
-import json
-import urllib.request
-import sys
-import time
-BASE = 'https://bi-snp-360.vercel.app'
+"""Verifica se o portal executivo NÃO entrega dados a uma sessão anônima.
 
-def get(path):
-    req=urllib.request.Request(BASE+path,headers={'User-Agent':'BI-SNP-360-Smoke/1.0'})
-    with urllib.request.urlopen(req,timeout=25) as res:
-        if res.status != 200: raise RuntimeError(f'{path}: HTTP {res.status}')
-        return res.read(), dict(res.headers)
+A aplicação está protegida por Vercel Authentication (All Deployments).
+Este teste usa uma sessão sem cookies e sem segredos de bypass.
+"""
+from urllib.request import Request, HTTPRedirectHandler, build_opener
+from urllib.error import HTTPError
 
-if __name__ == '__main__':
-    # Vercel inicia o deploy automaticamente após o commit; espere a troca do alias.
-    for attempt in range(12):
-        try:
-            raw,headers=get('/health.json')
-            break
-        except Exception as exc:
-            if attempt==11: raise
-            print(f'Aguardando o site publicado ({attempt+1}/12): {exc}',flush=True)
-            time.sleep(5)
-    o=json.loads(raw)
-    assert o['synthetic'] is True and o['environment']=='DEMONSTRACAO' and o['institutional_backend'] is False
-    h,_=get('/')
-    assert b'BI SNP 360' in h and b'assets/app.js' in h
-    j,_=get('/data/demo_public.json')
-    d=json.loads(j)
-    assert d['metadata']['synthetic'] is True and len(d['records'])==12
-    a,_=get('/assets/app.js')
-    assert b'function readiness()' in a
-    print('OK: HTTPS, HTML, ativos JS, status demonstrativo e JSON publico verificados.')
+BASE = "https://bi-snp-360.vercel.app"
+class NoRedirect(HTTPRedirectHandler):
+    def redirect_request(self, request, fp, code, msg, headers, url):
+        return None
+
+client = build_opener(NoRedirect())
+
+def assert_protected(path):
+    req = Request(BASE + path, headers={"User-Agent": "BI-SNP-360-Privacy-Check/1.0"})
+    try:
+        with client.open(req, timeout=25) as response:
+            status = response.status
+            body = response.read(160000).lower()
+            location = response.headers.get("Location", "")
+    except HTTPError as exc:
+        status = exc.code
+        body = exc.read(30000).lower()
+        location = exc.headers.get("Location", "")
+    if b'id="dat"' in body or b'id="fontes-originais"' in body:
+        raise AssertionError(f"Dados do BI foram expostos a acesso anonimo: {path}")
+    if status in (401, 403):
+        print(f"OK: {path} protegido com HTTP {status}")
+        return
+    if 300 <= status < 400 and "vercel" in location.lower():
+        print(f"OK: {path} redirecionado para autenticacao")
+        return
+    if status == 200 and b"vercel" in body and (
+        b"authentication" in body or b"sign in" in body or b"login" in body or b"entrar" in body
+    ):
+        print(f"OK: {path} mostra login, nao dados")
+        return
+    raise AssertionError(f"Acesso anonimo inesperado: {path}, HTTP {status}")
+
+if __name__ == "__main__":
+    assert_protected("/")
+    assert_protected("/controle_fontes.json")
