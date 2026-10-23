@@ -49,7 +49,7 @@ def test_missing_handover_metadata_blocks_review():
 @pytest.mark.parametrize('key,value',[
     ('status','homologado'),('classification','ultrassecreto'),('workstream_id','P99'),
     ('authorization_reference','Bearer token=XYZ'),('cutoff_date','2026-02-30'),
-    ('official_approval','true')])
+    ('official_approval','true'),('cutoff_date',0)])
 def test_unauthorized_or_malformed_handover_rejected(key,value):
     v=valid();v[key]=value
     with pytest.raises(GovernanceError):

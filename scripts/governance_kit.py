@@ -95,6 +95,8 @@ def check_handover(data: dict) -> dict:
         if re.search(r'(?:password|token|senha|secret|-----BEGIN)', value, re.I):
             raise GovernanceError('Possível segredo em campo de referência.')
     cutoff = data['cutoff_date']
+    if not isinstance(cutoff, str):
+        raise GovernanceError('Data de corte deve ser texto ISO ou vazia.')
     if cutoff:
         if not isinstance(cutoff, str) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}', cutoff):
             raise GovernanceError('Data de corte inválida.')
