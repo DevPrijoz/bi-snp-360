@@ -1,3 +1,9 @@
+## 0.7.0 — 23/10/2026
+- Primeira leitura interna das quatro planilhas oficiais SNP. Nenhuma publicação das bases/valores no site público.
+- Motor de conciliação por valores decimais, setores e ações, com rejeição de erros de schema e proteção contra dupla contagem.
+- Script de conferência local restrita via artifact_tool, documentação de auditoria e testes sintéticos.
+- Versão do frontend demonstrativo atualizada.
+
 ## v0.6.0 — Kit de solicitações e aceite (23/10/2026)
 - Sete fluxos de articulação com responsáveis propostos e evidências de aceite.
 - Gerador local de minutas + matriz CSV e validador de metadados sem aprovação automática.

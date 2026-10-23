@@ -7,6 +7,11 @@
 
 **Repositório principal (privado):** [DevPrijoz/bi-snp-360](https://github.com/DevPrijoz/bi-snp-360). **Pasta demonstrativa:** `web/`. **Demonstração em produção:** https://bi-snp-360.vercel.app/ (acesso pode depender da política de rede do Ministério). Veja [DEPLOY_STATUS.md](docs/DEPLOY_STATUS.md). O sistema de inspiração é o [BI Hidrovias da SNHN](https://hzhcdyvz4w-tech.github.io/bi-hidrovias/); não reutiliza os dados ou a estrutura orgânica da SNHN.
 
+
+## Marco v0.7.0 — Primeiras planilhas oficiais, controle de publicação
+
+Recebidos quatro arquivos institucionais (série histórica, execução detalhada LOA+RAP, autorizações secundárias e pendências). O projeto implementa funções puras de reconciliação e extração local; **nenhum conteúdo oficial é incluído no repositório ou na Vercel**. O painel público permanece demonstrativo. Consulte [Primeira Carga Oficial](docs/PRIMEIRA_CARGA_OFICIAL_2026.md).
+
 ## Marco v0.6.0 — Kit de solicitações e aceite
 
 - Matriz de **7 solicitações** (orçamento, conciliação, SIORG, TI, obras, outorgas, SEI/ANTAQ) com responsabilidades propostas, dependências e evidências.
