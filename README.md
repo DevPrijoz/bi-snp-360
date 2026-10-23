@@ -1,16 +1,24 @@
 # BI SNP 360° — Governança e Gestão
 
-> **ESTADO: protótipo técnico funcional / piloto de API — NÃO HOMOLOGADO PARA PRODUÇÃO.**
-> Toda a base exibida na interface pública é **sintética e fictícia**, sem representação de dados reais do MPOR. Não utilizar para decisões institucionais.
+> **PORTAL AUTENTICADO DA DIRETORIA — DADOS OFICIAIS FORNECIDOS EM 23/10/2026, EM CONFERÊNCIA, AINDA NÃO HOMOLOGADOS.**
+> O acesso exige login Vercel autorizado. O endereço NÃO é um link público aberto. Os quatro arquivos XLSX originais estão incorporados ao painel com hashes de integridade, sem alteração de seu conteúdo.
 
-**Versão de desenvolvimento:** v0.6.0 (governança e recebimento) • sistema institucional ainda não homologado.
+**Link protegido:** https://bi-snp-360.vercel.app/ · **Vercel:** `rootDirectory=diretoria`, `ssoProtection=all` (All Deployments) · **GitHub:** [DevPrijoz/bi-snp-360](https://github.com/DevPrijoz/bi-snp-360) privado. Os perfis de acesso dos diretores serão definidos quando os usuários forem informados.
 
-**Repositório principal (privado):** [DevPrijoz/bi-snp-360](https://github.com/DevPrijoz/bi-snp-360). **Pasta demonstrativa:** `web/`. **Demonstração em produção:** https://bi-snp-360.vercel.app/ (acesso pode depender da política de rede do Ministério). Veja [DEPLOY_STATUS.md](docs/DEPLOY_STATUS.md). O sistema de inspiração é o [BI Hidrovias da SNHN](https://hzhcdyvz4w-tech.github.io/bi-hidrovias/); não reutiliza os dados ou a estrutura orgânica da SNHN.
+**Código:** `diretoria/` é o portal oficial protegido; `web/` preserva a demonstração sintética e seus testes, não é o root atualmente implantado; `backend/` é um piloto, não o banco institucional. Guia: [PORTAL_DIRETORIA.md](docs/PORTAL_DIRETORIA.md).
 
+## Marco 2026-10-23 — Portal protegido e originais íntegros
 
-## Marco v0.7.0 — Primeiras planilhas oficiais, controle de publicação
+- Painel com série histórica 2019–2026, execução 2026 LOA + RAP, detalhamento setorial, demandas pendentes e divergências sem alterações presumidas.
+- Arquivos originais: quatro planilhas XLSX, mais relatório PDF e planilha de conferência; entregues para download após login e com SHA-256 embutido.
+- O corte da série histórica informado é 09/10/2026; o corte detalhado 2026 e a conciliação definitiva seguem pendentes de confirmação do responsável.
+- A Vercel exige autenticação para **todas** as URLs (inclusive produção); visitantes anônimos são redirecionados ao login.
+- **Acesso da diretoria:** depende de concessão individual na Vercel. No plano Hobby pode haver limite de um colaborador externo; avaliar licença/plataforma adequada para múltiplos diretores.
+- O material é disponibilizado por autorização declarada do responsável do projeto; a divulgação e os dados devem continuar conforme as normas aplicáveis a cada fonte.
 
-Recebidos quatro arquivos institucionais (série histórica, execução detalhada LOA+RAP, autorizações secundárias e pendências). O projeto implementa funções puras de reconciliação e extração local; **nenhum conteúdo oficial é incluído no repositório ou na Vercel**. O painel público permanece demonstrativo. Consulte [Primeira Carga Oficial](docs/PRIMEIRA_CARGA_OFICIAL_2026.md).
+## Marco v0.7.0 — Motor local de conferência
+
+As quatro planilhas foram utilizadas para gerar os registros consolidados; o motor de tratamento e os testes continuam independentes dos arquivos reais, e a pasta `web/` mantém somente demonstração sintética. O portal autorizado está em `diretoria/`. Consulte [Primeira Carga Oficial](docs/PRIMEIRA_CARGA_OFICIAL_2026.md).
 
 ## Marco v0.6.0 — Kit de solicitações e aceite
 
@@ -34,7 +42,7 @@ Recebidos quatro arquivos institucionais (série histórica, execução detalhad
 - **Verificação de saúde estática**: `/health.json` (retorna `synthetic: true`, `official_integrations: 0`, `institutional_backend: false`).
 - **Segurança e qualidade da apresentação**: cabeçalhos de proteção Vercel, validação de datas e mitigação de fórmulas de planilha nos CSVs exportados.
 - **Testes automatizados**: 25 testes locais e teste visual Chromium em desktop (1440 px) e celular (375 px), sem erros de JS ou rolagem horizontal; verificação HTTPS agendada e após alterações no GitHub Actions.
-- **URL pública da demonstração**: https://bi-snp-360.vercel.app/ — não é ambiente corporativo de dados reais.
+- **URL histórica da demonstração:** a URL atual foi convertida em portal protegido, e o código demonstrativo permanece em `web/`.
 
 **Bloqueadores de produção institucional:** acesso autorizado às fontes, classificação da informação, dicionários e chaves oficiais, homologação por unidades/gestores, IdP/SSO, backend e banco corporativo, gestão de backups, monitoramento, testes de segurança e aceite de TI/MPOR. Nenhum deles fica automaticamente resolvido por implantar o frontend estático.
 

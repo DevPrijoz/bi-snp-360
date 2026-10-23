@@ -1,4 +1,4 @@
-name: Verificação HTTPS da demonstração
+name: Verificação de acesso restrito — Diretoria BI SNP 360
 on:
   push:
     branches: [main]

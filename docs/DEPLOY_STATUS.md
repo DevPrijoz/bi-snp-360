@@ -1,22 +1,29 @@
-# Implantação v0.5.0 — demonstração versus operação institucional
+# Hospedagem BI SNP 360° — estado atual em 23/10/2026
 
-- **Demonstração web:** https://bi-snp-360.vercel.app/ (Vercel; publicação automática da pasta `web/` a partir de `DevPrijoz/bi-snp-360`, branch `main`).
-- **CI:** `.github/workflows/ci.yml`; monitor HTTPS `.github/workflows/live-smoke.yml`.
-- **Segurança:** JSON sintético, nenhum registro real, nenhuma fonte oficial conectada; API piloto em `backend/` não é implantada na Vercel.
-- **Rede MPOR:** o usuário confirmou que o site abre com dados móveis, mas a rede do Ministério apresenta timeout. A causa precisa ser confirmada com a equipe de TI; **não** contornar políticas corporativas. Registro: [issue #5](https://github.com/DevPrijoz/bi-snp-360/issues/5).
-- **GitHub Pages:** tentativas falharam por privilégios da integração, mas não é necessário para a demonstração hospedada na Vercel.
+## Produção
 
-## O que a hospedagem comprova
+- **Endereço:** https://bi-snp-360.vercel.app/
+- **Destino:** portal executivo de acesso restrito, com dados fornecidos pelo responsável.
+- **Vercel:** projeto `bi-snp-360`, `framework=null`, diretório raiz `diretoria`, branch `main`.
+- **Proteção obrigatória:** `ssoProtection.deploymentType=all` (Vercel Authentication, All Deployments); nunca desligar nem criar bypass para a diretoria.
+- **GitHub:** repositório `DevPrijoz/bi-snp-360` privado. `diretoria/index.html` contém o painel e os seis documentos em base64, para download após login.
+- **Teste anônimo:** deve redirecionar para a autenticação, nunca responder com `<script id="dat"` ou `<script id="fontes-originais"`.
+- **Limite:** os usuários autorizados da diretoria ainda não foram designados. O plano Hobby pode limitar o acesso externo; acesso real individual exige conta e permissão na Vercel.
 
-A entrega web depende dos testes de CI e de requisições HTTP externas. **Vercel `READY` não equivale a homologação funcional institucional.** O validador remoto testa HTML, CSS/JS e `health.json`/JSON sintético.
+## Dados e homologação
 
-## O que NÃO está implantado
+Quatro XLSX originais foram embutidos **sem alteração de bytes**, com hash SHA-256. O painel executa uma leitura gerencial preliminar e preserva as divergências identificadas; não substitui a homologação de fontes. A série histórica tem corte informado 09/10/2026; o corte do detalhamento e responsáveis serão cadastrados em versões posteriores.
 
-- API interna FastAPI e banco PostgreSQL de produção.
-- SSO/IdP real, permissões corporativas e auditoria operacional.
-- Integrações oficiais SIOP/SIAFI/SEI/Obrasgov/ANTAQ.
-- Extração, apuração e publicação de dados institucionais.
+## Demonstração anterior
 
-## Próximo marco
+`web/` contém o código de protótipo sintético e continua submetido a `scripts/release_guard.py`. Essa pasta deixou de ser a raiz de hospedagem Vercel; dados oficiais não devem ser misturados ali. O backend é piloto local, não API produtiva.
 
-Contratos LOA, execução, RAP e pagamentos + conferência conjunta local sem dados reais: [PACOTE_ORCAMENTARIO.md](PACOTE_ORCAMENTARIO.md). Uma integração real depende do órgão gestor da fonte, autorização, dicionário, infraestrutura segura e homologação.
+## Controle de acesso
+
+Para incluir diretor:
+1. Solicitar que o destinatário tenha conta Vercel e acesse o link de produção autenticado.
+2. Aprovar **individualmente** o acesso na área de Deployment Protection / Requests do projeto, respeitando o limite da conta.
+3. Revogar acesso quando não for mais necessário.
+4. Não usar Shareable Link (link de bypass), senhas em JavaScript, links públicos ou exceções de proteção.
+
+**Validação técnica:** execução `READY` na Vercel com domínio principal, e monitoramento de acesso anônimo pelo workflow de privacidade. Não substitui inspeção manual autenticada no navegador da diretoria.
