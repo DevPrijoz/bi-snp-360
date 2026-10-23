@@ -1,3 +1,9 @@
+## v0.6.0 — Kit de solicitações e aceite (23/10/2026)
+- Sete fluxos de articulação com responsáveis propostos e evidências de aceite.
+- Gerador local de minutas + matriz CSV e validador de metadados sem aprovação automática.
+- Painel de integrações exibe os sete procedimentos e exporta plano de solicitações.
+- Manual institucional e testes de proteção, sem acesso ou publicação de dados oficiais.
+
 ## v0.5.0 — Preparação do ciclo orçamentário (20/10/2026)
 
 - Novo contrato preliminar para pagamentos LOA/RAP em `contracts/datasets.json`.

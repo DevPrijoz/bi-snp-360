@@ -3,9 +3,17 @@
 > **ESTADO: protótipo técnico funcional / piloto de API — NÃO HOMOLOGADO PARA PRODUÇÃO.**
 > Toda a base exibida na interface pública é **sintética e fictícia**, sem representação de dados reais do MPOR. Não utilizar para decisões institucionais.
 
-**Versão de desenvolvimento:** v0.5.0 (preparação de dados) • testes em CI monitorados; sistema institucional ainda não homologado.
+**Versão de desenvolvimento:** v0.6.0 (governança e recebimento) • sistema institucional ainda não homologado.
 
 **Repositório principal (privado):** [DevPrijoz/bi-snp-360](https://github.com/DevPrijoz/bi-snp-360). **Pasta demonstrativa:** `web/`. **Demonstração em produção:** https://bi-snp-360.vercel.app/ (acesso pode depender da política de rede do Ministério). Veja [DEPLOY_STATUS.md](docs/DEPLOY_STATUS.md). O sistema de inspiração é o [BI Hidrovias da SNHN](https://hzhcdyvz4w-tech.github.io/bi-hidrovias/); não reutiliza os dados ou a estrutura orgânica da SNHN.
+
+## Marco v0.6.0 — Kit de solicitações e aceite
+
+- Matriz de **7 solicitações** (orçamento, conciliação, SIORG, TI, obras, outorgas, SEI/ANTAQ) com responsabilidades propostas, dependências e evidências.
+- Gerador de rascunhos individuais para instrução de demandas internas: `python -m scripts.governance_kit kit`.
+- Verificador isolado de metadados de recebimento: `python -m scripts.governance_kit conferir arquivo.json`; nunca homologa nem publica informação automaticamente.
+- Nova seção de encaminhamentos no painel demonstrativo, com exportação CSV e zero aprovações oficiais.
+- Procedimento completo em [GUIA_SOLICITACOES_E_ACEITE.md](docs/GUIA_SOLICITACOES_E_ACEITE.md).
 
 ## Marco v0.5.0 — Preparação orçamentária para ingestão
 
@@ -117,6 +125,6 @@ Consulte os documentos de arquitetura, segurança, operação e plano de trabalh
 
 O arquivo `contracts/datasets.json` oferece layouts **propostos** para LOA, execução, RAP, processos, obras e movimentação portuária. O script `scripts/inspect_dataset.py` valida uma extração autorizada **localmente**, registra hash e gera manifesto com situação `pendente_homologacao`, sem carregar informação institucional no GitHub. Leia [INGESTAO_BASES.md](docs/INGESTAO_BASES.md) e [ACEITE_E_PENDENCIAS.md](docs/ACEITE_E_PENDENCIAS.md).
 
-## Publicação web (bloqueio de conta)
+## Publicação web (demonstração ativa na Vercel)
 
-Leia [DEPLOY_STATUS.md](docs/DEPLOY_STATUS.md). O Pages não está ativado porque o `GITHUB_TOKEN` do workflow não pode criar o site (erro de permissão). O endereço não deve ser divulgado como ativo antes do deploy bem-sucedido. O repositório principal deve permanecer privado; alternativa de hospedagem separada requer autorização e conexão da conta do provedor.
+A demonstração sintética é publicada em **https://bi-snp-360.vercel.app/** e o repositório principal permanece privado. A rede corporativa do MPOR pode bloquear o domínio; isso deve ser tratado com a TI, sem contornar políticas. Leia [DEPLOY_STATUS.md](docs/DEPLOY_STATUS.md).

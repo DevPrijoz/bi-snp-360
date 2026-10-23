@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "classification": "PUBLICO_DEMONSTRATIVO",
+  "official_approvals": 0,
+  "note": "Papéis propostos, sem designação ou autorização do MPOR. O preenchimento dos campos não substitui ato formal de aprovação.",
+  "workstreams": [
+    {
+      "id": "P01", "priority": "alta", "title": "Obter bases orçamentárias autorizadas", "owner_proposed": "Área Orçamentária e gestores SIOP/SIAFI", "dependencies": ["P04"],
+      "request": "Solicitar quatro amostras sanitizadas (LOA, execução, RAP e pagamentos), seus dicionários, classificação, autorização de tratamento e datas de corte no ambiente institucional aprovado.",
+      "required_evidence": ["Autorização e finalidade do acesso", "Dicionários de campos e granularidade dos quatro conjuntos", "Amostras autorizadas fora do GitHub, Vercel e chat", "Chaves, codificação da UO e data de corte", "Critério de anonimização ou minimização"],
+      "acceptance": "Área proprietária identifica fonte, corte, regra de acesso e aprova o layout para testes internos."
+    },
+    {
+      "id": "P02", "priority": "alta", "title": "Homologar indicadores e conciliação", "owner_proposed": "Área Orçamentária / Contábil", "dependencies": ["P01"],
+      "request": "Definir por escrito dotação, empenhado, liquidado, pago, RAP e estornos, incluindo métodos de agregação e validação dos totais por exercício.",
+      "required_evidence": ["Fórmula e unidade de cada indicador", "Origem LOA/RAP e prevenção de dupla contagem", "Tratamento de cancelamentos, estornos e créditos", "Exemplo de reconciliação conferido pelo gestor", "Responsável, periodicidade, corte e aceite"],
+      "acceptance": "Memória de cálculo e reconciliação aprovadas formalmente por responsável designado."
+    },
+    {
+      "id": "P03", "priority": "alta", "title": "Validar unidades e responsabilidades", "owner_proposed": "Gabinete SNP / Chefias / SIORG", "dependencies": [],
+      "request": "Confirmar o organograma vigente, o vínculo das coordenações e os pontos focais para cada conjunto de dados e indicador.",
+      "required_evidence": ["Organograma SIORG e ato vigente", "Ponto focal técnico e gestor da informação", "Matriz RACI por módulo", "Unidade homologadora e substituto designados"],
+      "acceptance": "Matriz de responsabilidades assinada ou formalmente aprovada."
+    },
+    {
+      "id": "P04", "priority": "alta", "title": "Aprovar infraestrutura e autenticação", "owner_proposed": "TI/MPOR e segurança da informação", "dependencies": ["P03"],
+      "request": "Solicitar ambiente segregado dev/homologação/produção com gestão de identidades, banco, backup, monitoramento e política de retenção.",
+      "required_evidence": ["Decisão de hospedagem institucional", "OIDC e perfis autorizados", "PostgreSQL com backups e migrações", "Política de logs, retenção e LGPD", "Testes de segurança e homologação TI"],
+      "acceptance": "Ambiente e controles liberados formalmente pela TI para dados classificados."
+    },
+    {
+      "id": "P05", "priority": "media", "title": "Receber carteira de investimentos e obras", "owner_proposed": "DGMP / gestor de obras", "dependencies": ["P03", "P04"],
+      "request": "Indicar fonte e acesso às obras, identificador de empreendimento, execução física/financeira, cronogramas e situação.",
+      "required_evidence": ["Catálogo de projetos/empreendimentos", "Chaves e vinculações aprovadas", "Cronograma, execução e fontes", "Corte e periodicidade de atualização"],
+      "acceptance": "Amostra e metodologia verificadas pela área de investimentos."
+    },
+    {
+      "id": "P06", "priority": "media", "title": "Receber outorgas e contratos", "owner_proposed": "DNOP / gestor de outorgas", "dependencies": ["P03", "P04"],
+      "request": "Disponibilizar catálogo autorizado de arrendamentos, concessões, contratos e obrigações com vigência e responsável.",
+      "required_evidence": ["Identificador único do instrumento", "Objeto, vigência e marco de obrigações", "Status contratual e evidências", "Critérios de prazos e alertas"],
+      "acceptance": "Layout e regras de acompanhamento homologados pela área de outorgas."
+    },
+    {
+      "id": "P07", "priority": "media", "title": "Validar processos SEI e indicadores ANTAQ", "owner_proposed": "Gestores SEI/MPOR e área de estatística portuária", "dependencies": ["P03", "P04"],
+      "request": "Separar pedidos: SEI exige acesso autorizado e classificação; ANTAQ pode começar com catálogo de dados públicos e metodologia.",
+      "required_evidence": ["SEI: ato de autorização e matriz de permissões", "SEI: identificador, prazo e unidade somente no ambiente interno", "ANTAQ: fonte pública, versão, granularidade, unidade e corte", "Homologação de vínculo instalação/indicador"],
+      "acceptance": "Fonte SEI liberada por gestor habilitado e fontes ANTAQ metodologicamente aprovadas."
+    }
+  ]
+}
