@@ -43,7 +43,7 @@ jobs:
           data=json.loads((root / "data/demo_public.json").read_text(encoding="utf-8"))
           assert data["metadata"]["environment"] == "DEMONSTRACAO"
           assert data["metadata"]["synthetic"] is True
-          assert sorted(str(p.relative_to(root)) for p in (root/"data").rglob("*") if p.is_file()) == ["demo_public.json"]
+          assert sorted(str(p.relative_to(root)) for p in (root/"data").rglob("*") if p.is_file()) == ["data/demo_public.json"]
           allowed={".html",".css",".js",".json",".svg"}
           for p in root.rglob("*"):
               if p.is_symlink():
