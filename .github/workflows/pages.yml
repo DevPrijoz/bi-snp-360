@@ -1,3 +1,4 @@
+# Publica exclusivamente web/; nunca inclui diretoria/ ou dados oficiais.
 name: BI SNP 360 - GitHub Pages (somente demonstração)
 on:
   push:
