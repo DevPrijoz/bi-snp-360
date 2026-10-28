@@ -1,5 +1,12 @@
-name: Publicar demonstracao estatica - GitHub Pages
+name: BI SNP 360 - GitHub Pages (somente demonstração)
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'scripts/release_guard.py'
+      - 'scripts/validate_assets.py'
+      - '.github/workflows/pages.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -9,27 +16,48 @@ concurrency:
   group: github-pages
   cancel-in-progress: false
 jobs:
-  deploy:
+  publicar:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Verificar dados exclusivamente demonstrativos
+      - name: Validação e isolamento de dados
         run: |
           python scripts/validate_assets.py
           python scripts/release_guard.py
-      - name: Instrucoes de ativacao do Pages
-        run: |
-          echo 'GitHub Pages precisa estar habilitado em Settings > Pages > Source: GitHub Actions.'
-          echo 'Se a conta usa GitHub Free e este repositório é privado, o Pages pode não estar disponível.'
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          root=Path("web")
+          assert (root / "index.html").exists()
+          assert (root / ".nojekyll").exists()
+          data=json.loads((root / "data/demo_public.json").read_text(encoding="utf-8"))
+          assert data["metadata"]["environment"] == "DEMONSTRACAO"
+          assert data["metadata"]["synthetic"] is True
+          assert sorted(str(p.relative_to(root)) for p in (root/"data").rglob("*") if p.is_file()) == ["demo_public.json"]
+          allowed={".html",".css",".js",".json",".svg"}
+          for p in root.rglob("*"):
+              if p.is_symlink():
+                  raise RuntimeError(f"Link simbólico proibido: {p}")
+              if p.is_file() and p.name!=".nojekyll" and p.suffix.lower() not in allowed:
+                  raise RuntimeError(f"Arquivo não público no Pages: {p}")
+          print("OK: Pages contém exclusivamente o frontend demonstrativo (web/).")
+          PY
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+      - name: Empacotar somente web
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./web
-      - id: deployment
+      - name: Publicar
+        id: deployment
         uses: actions/deploy-pages@v4
