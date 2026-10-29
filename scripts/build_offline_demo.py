@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def build(output: Path) -> Path:
     source=ROOT/'web/index.html'
-    css=(ROOT/'web/assets/styles.css').read_text(encoding='utf-8')
+    css=(ROOT/'web/assets/styles.css').read_text(encoding='utf-8')+'\n'+(ROOT/'web/assets/sector-playbook.css').read_text(encoding='utf-8')
     js=(ROOT/'web/assets/app.js').read_text(encoding='utf-8')
     obj=json.loads((ROOT/'web/data/demo_public.json').read_text(encoding='utf-8'))
     if obj.get('metadata',{}).get('synthetic') is not True or obj['metadata'].get('environment') != 'DEMONSTRACAO':
@@ -25,7 +25,10 @@ def build(output: Path) -> Path:
     if link not in html or script not in html:
         raise ValueError('Estrutura HTML incompatível, revisão manual necessária.')
     html=html.replace(link,'<style>\n'+css+'\n</style>')
+    html=html.replace('<link rel="stylesheet" href="./assets/sector-playbook.css">','')
     html=html.replace(script, '<script>window.__SNP_DEMO_DATA__='+blob+';</script>\n<script type="module">\n'+js+'\n</script>')
+    extra=(ROOT/'web/assets/sector-playbook.js').read_text(encoding='utf-8')
+    html=html.replace('<script src="./assets/sector-playbook.js" defer></script>','<script>\n'+extra+'\n</script>')
     html=re.sub(r'<link rel="icon"[^>]+>', '', html)
     output.parent.mkdir(parents=True,exist_ok=True)
     output.write_text(html,encoding='utf-8')

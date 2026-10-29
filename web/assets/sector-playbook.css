@@ -1,0 +1,40 @@
+/* Caderno técnico SNP 360°: mínimo, responsivo, exclusivamente ilustrativo. */
+.tech-section,.perspective-board,.people-panel{margin:20px 0 23px}
+.tech-section{border:1px solid #d4e4e8;background:#fff;border-radius:15px;padding:21px;box-shadow:0 6px 22px rgba(19,61,91,.035)}
+.tech-top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:18px}
+.tech-eyebrow{font-size:10px;font-weight:850;letter-spacing:1.3px;color:#008a89;text-transform:uppercase;margin-bottom:8px}
+.tech-top h2,.people-note h2{font-size:18px;letter-spacing:-.45px;margin:0 0 6px;color:#153d63}
+.tech-top p{font-size:12px;line-height:1.65;color:#556e80;max-width:750px;margin:0}
+.tech-mini{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:8px;margin:0 0 14px}
+.tech-mini span{display:block;padding:11px 13px;border:1px solid #e4edf1;border-radius:10px;background:#f5f9fa;font-size:11px;line-height:1.55;color:#47677a}
+.tech-mini strong{display:block;color:#7d93a0;font-size:10px;margin-bottom:3px;text-transform:uppercase;letter-spacing:.3px}
+.tech-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tech-card{background:#fbfdfe;border:1px solid #e0e9ed;padding:16px;border-radius:12px;min-width:0}
+.tech-card h3{font-size:12px;color:#1b4762;margin:0 0 10px;line-height:1.4}
+.tech-card ul{margin:0;padding-left:17px;color:#5a7384;font-size:11.5px;line-height:1.7}
+.tech-card li+li{margin-top:7px}
+.tech-flow{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.tech-flow span{flex:1;min-width:110px;text-align:center;border:1px solid #c9e6df;background:#eff8f6;color:#16746e;padding:9px 10px;border-radius:9px;font-size:10px;font-weight:800}
+.tech-footnote{font-size:10px;color:#8699a6;line-height:1.5;margin:12px 0 0}
+.perspective-board{padding:16px 18px;border:1px solid #dce7ed;border-radius:13px;background:#fff}
+.perspective-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.perspective-grid>div{padding:5px 18px;border-right:1px solid #e3eaf0}
+.perspective-grid>div:first-child{padding-left:0}.perspective-grid>div:last-child{border-right:0}
+.perspective-grid span,.perspective-grid strong,.perspective-grid small{display:block}
+.perspective-grid span{color:#6b96a5;font-size:9px;font-weight:850;letter-spacing:.6px}
+.perspective-grid strong{font-size:17px;color:#173d5b;margin:5px 0}
+.perspective-grid small{color:#788d9e;font-size:10px;line-height:1.4}
+.people-panel>.page-sub{margin-bottom:15px}
+.tech-warning{margin:16px 0 20px;background:#fff8e9;border:1px solid #e9d6aa;color:#87632d;border-radius:10px;padding:13px 15px;font-size:11.5px;line-height:1.6}
+.people-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:16px 0 23px}
+.people-kpis>div{background:#fff;border:1px solid #dce7ed;border-radius:12px;padding:15px}
+.people-kpis span,.people-kpis strong,.people-kpis small{display:block}
+.people-kpis span{font-size:11px;font-weight:800;color:#4c7087}
+.people-kpis strong{font-size:30px;color:#23647d;margin:7px 0}
+.people-kpis small{font-size:10px;color:#8296a4;line-height:1.4}
+.people-note{border:1px solid #dce7ed;background:white;border-radius:12px;padding:17px;margin-top:13px}
+.people-note p{font-size:12px;line-height:1.7;color:#5e7584}
+@media(max-width:1100px){.tech-cols{grid-template-columns:1fr 1fr}.tech-card.tech-last{grid-column:1/-1}.perspective-grid{grid-template-columns:repeat(2,1fr);row-gap:16px}.perspective-grid>div:nth-child(2){border-right:0}}
+@media(max-width:760px){.tech-mini{grid-template-columns:1fr}.tech-top{display:block}.tech-top .btn{margin-top:15px}.tech-cols{grid-template-columns:1fr}.tech-card.tech-last{grid-column:auto}.people-kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.tech-section{padding:15px}.people-kpis{grid-template-columns:1fr 1fr;gap:8px}.perspective-grid{grid-template-columns:1fr 1fr}.perspective-grid>div{padding:4px 9px}.perspective-grid>div:nth-child(2n+1){padding-left:0}.perspective-grid strong{font-size:14px}.tech-flow span{min-width:90px}}
+@media print{.tech-top button{display:none}.tech-section{break-inside:avoid}.people-panel{break-inside:avoid}}
